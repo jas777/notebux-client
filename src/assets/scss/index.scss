@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-background
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+    opacity: 1;
+    background-color: transparent;
+}
+
+.ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.ReactModal__Content, .ReactModal__Content--after-open {
+    overflow: hidden;
+    @apply rounded-2xl border-0 bg-field-background;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
