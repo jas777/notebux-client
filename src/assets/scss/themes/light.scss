@@ -1,0 +1,24 @@
+@mixin light {
+
+  --color-primary: #7e22ce;
+  --color-primary-darker: #6b21a8;
+
+  --color-secondary: #be185d;
+  --color-secondary-darker: #9d174d;
+
+  --color-tertiary: #475569;
+  --color-tertiary-darker: #334155;
+
+  --color-text: #0f172a;
+  --color-text-secondary: #0b2941;
+
+  --color-background: #F3F2F9;
+  --color-error: #f43f5e;
+  --color-field-background: #f8fafc;
+  --color-card-background: #fff;
+
+  --color-table-primary: #fff;
+  --color-table-secondary: #f1f5f9;
+  --color-table-hover: #e2e8f0;
+
+}

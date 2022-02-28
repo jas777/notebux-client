@@ -1,0 +1,28 @@
+@mixin dark {
+
+  --color-primary: #7e22ce;
+  --color-primary-darker: #6b21a8;
+
+  --color-secondary: #be185d;
+  --color-secondary-darker: #9d174d;
+
+  --color-tertiary: #475569;
+  --color-tertiary-darker: #334155;
+
+  --color-text: #cbd5e1;
+  --color-text-secondary: #94a3b8;
+
+  --color-background: #0f172a;
+  --color-error: #f43f5e;
+  --color-field-background: #f8fafc;
+  --color-card-background: #1e293b;
+
+  --color-table-primary: #475569;
+  --color-table-secondary: #334155;
+  --color-table-hover: #475569;
+
+  #root {
+    background-color: var(--color-background);
+  }
+
+}

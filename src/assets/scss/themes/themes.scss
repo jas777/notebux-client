@@ -1,0 +1,11 @@
+@use 'light';
+@use 'dark';
+
+.theme {
+  &-light {
+    @include light.light;
+  }
+  &-dark {
+    @include dark.dark;
+  }
+}
