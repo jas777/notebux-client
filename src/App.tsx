@@ -16,7 +16,6 @@ import EditNote from "./pages/EditNote";
 import VerifyEmail from "./pages/VerifyEmail";
 import Navbar from "./components/nav/Navbar";
 import {ProvideAuth} from './providers/auth';
-import useToken from "./hooks/useToken";
 
 // export const API_URL = 'https://api.notebux.xyz'
 export const API_URL = 'http://localhost:8080'

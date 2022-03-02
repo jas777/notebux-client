@@ -99,7 +99,7 @@ const NotePage = () => {
             }
         }
 
-    }, [navigate, searchParams, token])
+    }, [navigate, searchParams, token, auth?.user])
 
     useEffect(() => {
         const raw = rawRef.current
@@ -109,7 +109,7 @@ const NotePage = () => {
 
     return (
         <div className="w-full flex items-center flex-col w-3/4 self-center">
-            <div className="bg-card-background shadow-xl rounded-3xl m-16 p-8">
+            <div className="bg-card-background shadow-xl rounded-3xl m-16 p-8 w-full">
                 <h1 className="text-4xl font-medium font-heading text-primary font-semibold ">
                     {data?.title ? data.title : 'Fetching data...'}
                 </h1>
