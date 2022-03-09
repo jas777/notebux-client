@@ -107,7 +107,7 @@ const EditNote = () => {
                 </button>
             </Modal>
             <div className="bg-card-background shadow-xl rounded-3xl m-16 p-8">
-                <h1 className="text-4xl text-text-secondary font-medium font-heading">
+                <h1 className="text-4xl text-text font-medium font-heading">
                     Edit note
                 </h1>
                 <div className="mt-4">

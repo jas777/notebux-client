@@ -56,6 +56,7 @@ module.exports = {
                 background: withOpacityValue('--color-background'),
                 error: withOpacityValue('--color-error'),
                 'field-background': withOpacityValue('--color-field-background'),
+                'field-border': withOpacityValue('--color-field-border'),
                 'card-background': withOpacityValue('--color-card-background'),
                 'table-primary': withOpacityValue('--color-table-primary'),
                 'table-secondary': withOpacityValue('--color-table-secondary'),

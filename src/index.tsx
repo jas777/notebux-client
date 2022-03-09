@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import './assets/scss/themes/themes.scss'
 import './assets/scss/index.scss';
 
 import App from './App';

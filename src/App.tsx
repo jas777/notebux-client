@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 
 import './App.css';
 
@@ -17,8 +17,8 @@ import VerifyEmail from "./pages/VerifyEmail";
 import Navbar from "./components/nav/Navbar";
 import {ProvideAuth} from './providers/auth';
 
-// export const API_URL = 'https://api.notebux.xyz'
-export const API_URL = 'http://localhost:8080'
+export const API_URL = 'https://api.notebux.xyz'
+// export const API_URL = 'http://localhost:8080'
 
 type Theme = 'light' | 'dark';
 
@@ -29,7 +29,8 @@ interface ThemeContext {
 
 const themeContext = createContext<ThemeContext>({
     current: 'light',
-    setTheme: () => {}
+    setTheme: () => {
+    }
 })
 
 export const useTheme = () => useContext(themeContext);
@@ -40,23 +41,34 @@ function App() {
 
     const themeContextValue = {
         current: theme,
-        setTheme: (value: Theme) => setTheme(value)
+        setTheme: (value: Theme) => {
+            setTheme(value);
+            localStorage.setItem('theme', value);
+        }
     }
+
+    useEffect(() => {
+        const storedTheme = localStorage.getItem('theme') as Theme;
+        if (storedTheme) setTheme(storedTheme)
+        else setTheme('light')
+    }, [])
 
     return (
         <themeContext.Provider value={themeContextValue}>
             <ProvideAuth>
-                <div className={`w-full flex flex-col bg-background text-text theme-${theme}`}>
+                <div className={`w-full flex-col bg-background text-text theme-${theme}`} id="notebux-root">
                     <Navbar/>
-                    <Routes>
-                        <Route path="/" element={<Home/>}/>
-                        <Route path="/login" element={<Login/>}/>
-                        <Route path="/register" element={<Register/>}/>
-                        <Route path="/new" element={<NewNote/>}/>
-                        <Route path="/note" element={<NotePage/>}/>
-                        <Route path="/edit" element={<EditNote/>}/>
-                        <Route path="/verify_email" element={<VerifyEmail/>}/>
-                    </Routes>
+                    <div id="notebux-content" className="flex justify-center">
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/login" element={<Login/>}/>
+                            <Route path="/register" element={<Register/>}/>
+                            <Route path="/new" element={<NewNote/>}/>
+                            <Route path="/note" element={<NotePage/>}/>
+                            <Route path="/edit" element={<EditNote/>}/>
+                            <Route path="/verify_email" element={<VerifyEmail/>}/>
+                        </Routes>
+                    </div>
                 </div>
             </ProvideAuth>
         </themeContext.Provider>

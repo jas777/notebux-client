@@ -1,6 +1,12 @@
+
+@use 'themes/themes';
+@use 'themes/light';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@include themes.themes;
 
 body {
     @apply bg-background
@@ -22,7 +28,8 @@ body {
 
 .ReactModal__Content, .ReactModal__Content--after-open {
     overflow: hidden;
-    @apply rounded-2xl border-0 bg-field-background;
+    background-color: var(--color-card-background);
+    @apply rounded-2xl border-0;
 }
 
 pre {
@@ -35,4 +42,5 @@ body {
 
 .pretty.p-switch .state:before {
     height: calc(1em + 4px) !important;
+    @apply bg-field-background;
 }

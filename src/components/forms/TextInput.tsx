@@ -34,7 +34,7 @@ const TextInput = ({
     return (
         <>
             <label
-                className={`block text-gray-700 text-sm font-normal mb-2 ${labelClassName}`}
+                className={`block text-text-secondary text-sm font-normal mb-2 ${labelClassName}`}
                 htmlFor={name}
             >
                 {label}
@@ -42,7 +42,7 @@ const TextInput = ({
             {!multiline && <Field
                 className={`${
                     !hideErrorPlaceholder && error ? 'border-error' : ''
-                } bg-field-background transition-colors duration-150 appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-primary`}
+                } text-text bg-field-background transition-colors duration-150 appearance-none border border-field-border rounded w-full py-2 px-3 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-primary`}
                 type={type}
                 as={'input'}
                 placeholder={placeholder}
@@ -53,7 +53,7 @@ const TextInput = ({
             {multiline && <FastField
                 className={`${
                     !hideErrorPlaceholder && error ? 'border-error' : ''
-                } overflow-hidden bg-field-background transition-colors duration-150 appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-primary`}
+                } text-text overflow-hidden bg-field-background transition-colors duration-150 appearance-none border border-field-border rounded w-full py-2 px-3 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-primary`}
                 type={type}
                 as={'textarea'}
                 placeholder={placeholder}

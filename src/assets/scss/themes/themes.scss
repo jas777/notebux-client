@@ -1,15 +1,18 @@
 @use 'light';
 @use 'dark';
 
-body, html, div {
-  @apply transition-colors duration-75;
-}
-
-.theme {
-  &-light {
-    @include light.light;
+@mixin themes {
+  body, html, div {
+    @apply transition-colors duration-75;
   }
-  &-dark {
-    @include dark.dark;
+
+  .theme {
+    &-light {
+      @include light.light;
+    }
+
+    &-dark {
+      @include dark.dark;
+    }
   }
 }

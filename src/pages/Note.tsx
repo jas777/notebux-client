@@ -135,7 +135,7 @@ const NotePage = () => {
                         <textarea ref={rawRef} name="raw" id="raw" disabled
                                   value={data?.content ?? 'Fetching data...'}
                                   className="h-auto overflow-hidden resize-none bg-field-background transition-colors
-                                  duration-150 appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1
+                                  duration-150 appearance-none border border-field-border rounded w-full py-2 px-3 text-text-secondary mb-1
                                   leading-tight focus:outline-none focus:shadow-outline focus:border-primary"
                         />
                     )}

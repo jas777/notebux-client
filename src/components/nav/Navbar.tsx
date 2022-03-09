@@ -18,7 +18,7 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         border: 'none',
-        backgroundColor: '#fff',
+        backgroundColor: 'var(--color-background)',
         borderRadius: '11px',
         width: '33%',
         minWidth: '400px'
@@ -29,6 +29,8 @@ const customStyles = {
 };
 
 const Navbar = () => {
+
+    Modal.setAppElement(document.getElementById('#notebux-content') as HTMLElement)
 
     const [modalShown, setModalShown] = useState(false);
 
@@ -49,7 +51,7 @@ const Navbar = () => {
             auth?.fetchUser();
         }
     }, [])
-    
+
     useEffect(() => {
         formik.setFieldValue("email", auth?.user?.email)
     }, [auth?.user?.email])
@@ -67,6 +69,7 @@ const Navbar = () => {
                 bodyOpenClassName="border-0"
                 closeTimeoutMS={200}
                 ariaHideApp={false}
+                parentSelector={() => document.querySelector('#notebux-root') as HTMLElement}
             >
                 <h1 className="font-bold text-2xl text-text-secondary mb-6">
                     <FontAwesomeIcon className="mr-3" icon="user"/>
@@ -76,7 +79,7 @@ const Navbar = () => {
                     <Form>
                         <Alert content={emailText} success={auth?.user?.activated} danger={!auth?.user?.activated}
                                className="mb-6"/>
-                        <TextInput name="email" label="E-mail" defaultValue={auth?.user?.email} disabled/>
+                        <TextInput name="email" label="E-mail" defaultValue={auth?.user?.email ?? ''} disabled/>
                         <TextInput name="password" label="Password" defaultValue="Would be dumb if we sent the password"
                                    type="password" disabled/>
                         {!auth?.user?.activated && (
@@ -85,7 +88,7 @@ const Navbar = () => {
                                 </span>
                         )}
 
-                        <DashboardButton secondary label="Close"
+                        <DashboardButton type="button" secondary label="Close"
                                          onClick={() => setModalShown(false)}><FontAwesomeIcon
                             icon="times-circle"/> Close
                         </DashboardButton>
@@ -103,13 +106,13 @@ const Navbar = () => {
                         className="text-lg bg-card-background text-red-600 rounded-full shadow-lg h-10 w-10 items-center justify-center flex transition-colors duration-150 hover:bg-red-600 hover:text-card-background mr-4"
                         onClick={() => auth?.signOut(() => navigate("/login"))}
                     >
-                        <FontAwesomeIcon icon="sign-out-alt" />
+                        <FontAwesomeIcon icon="sign-out-alt"/>
                     </button>
                     <button
                         className="text-lg bg-card-background rounded-full shadow-lg h-10 w-10 items-center justify-center flex transition-colors duration-150 hover:bg-primary-darker hover:text-card-background mr-4"
                         onClick={() => theme.setTheme(theme.current === 'light' ? 'dark' : 'light')}
                     >
-                        <FontAwesomeIcon icon={theme.current === 'light' ? 'sun' : 'moon' }/>
+                        <FontAwesomeIcon icon={theme.current === 'light' ? 'sun' : 'moon'}/>
                     </button>
                     <button
                         className="text-lg bg-card-background rounded-full shadow-lg h-10 w-10 items-center justify-center flex transition-colors duration-150 hover:bg-primary-darker hover:text-card-background"
