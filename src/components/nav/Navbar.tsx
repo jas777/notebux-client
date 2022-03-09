@@ -35,6 +35,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const auth = useAuth();
+
     const formik = useFormik({
         onSubmit() {
         },
@@ -42,6 +43,12 @@ const Navbar = () => {
             ...auth?.user
         }
     })
+
+    useEffect(() => {
+        if (auth) {
+            auth?.fetchUser();
+        }
+    }, [])
     
     useEffect(() => {
         formik.setFieldValue("email", auth?.user?.email)
@@ -90,7 +97,7 @@ const Navbar = () => {
             <div>
 
             </div>
-            {!!auth?.user && (
+            {auth?.user && (
                 <div className="flex">
                     <button
                         className="text-lg bg-card-background text-red-600 rounded-full shadow-lg h-10 w-10 items-center justify-center flex transition-colors duration-150 hover:bg-red-600 hover:text-card-background mr-4"

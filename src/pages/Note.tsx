@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -23,6 +23,8 @@ import DashboardButton from "../components/button/DashboardButton";
 import {useAuth} from "../providers/auth";
 import useAuthProtection from "../hooks/useAuthProtection";
 
+type NoteFeature = 'notes' | 'notes/shared';
+
 const NotePage = () => {
 
     useAuthProtection();
@@ -39,9 +41,11 @@ const NotePage = () => {
 
     if (!searchParams.get('id')) navigate("/")
 
+    const feature: NoteFeature = searchParams.get('feature') as NoteFeature || 'notes';
+
     useEffect(() => {
 
-        axios.get<Note>(`${API_URL}/notes/${searchParams.get('id')}`, {
+        axios.get<Note>(`${API_URL}/${feature}/${searchParams.get('id')}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -99,7 +103,7 @@ const NotePage = () => {
             }
         }
 
-    }, [navigate, searchParams, token, auth?.user])
+    }, [navigate, searchParams, token, auth?.user, feature])
 
     useEffect(() => {
         const raw = rawRef.current
@@ -123,7 +127,7 @@ const NotePage = () => {
                     <div className="mr-4">
                         <DashboardButton label="Go back to the list" onClick={() => navigate(`/`)}/>
                     </div>
-                    {!!data?.shareTo && !data?.shareTo.includes(auth?.user?.email as string) &&
+                    {data?.author === auth?.user?.id &&
                         < DashboardButton label="Edit" onClick={() => navigate(`/edit?id=${data?.id}`)}/>}
                 </div>
                 <div className="mt-8 w-auto">

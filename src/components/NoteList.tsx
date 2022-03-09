@@ -12,26 +12,7 @@ import {useAuth} from "../providers/auth";
 const NoteList = ({notes}: { notes: Note[] }) => {
 
     const auth = useAuth();
-    const [token] = useToken()
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!auth?.user) {
-            if (token) {
-                axios.get<User>(`${API_URL}/@me`, {
-                    headers: {Authorization: `Bearer ${token}`}
-                }).then((rUser) => {
-                    if (rUser.data.email) {
-                        auth?.setUser(rUser.data)
-                    } else {
-                        return navigate("/login")
-                    }
-                })
-            } else {
-                return navigate("/login")
-            }
-        }
-    }, [token, auth])
 
     const list = useMemo(() => {
         return notes.map((note, i) => (

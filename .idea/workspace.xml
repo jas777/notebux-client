@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="117152de-8108-4c61-ad1f-72ebb6d67ca4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/themes/themes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/themes/themes.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NoteList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NoteList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/TextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/nav/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EditNote.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditNote.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Note.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Note.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providers/auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/Note.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/Note.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
-        <option value="SCSS File" />
         <option value="TypeScript File" />
+        <option value="SCSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -113,7 +122,10 @@
       <workItem from="1645993917527" duration="102000" />
       <workItem from="1646130633794" duration="981000" />
       <workItem from="1646132100490" duration="954000" />
-      <workItem from="1646222210825" duration="1061000" />
+      <workItem from="1646222210825" duration="1639000" />
+      <workItem from="1646380049150" duration="1126000" />
+      <workItem from="1646739234682" duration="4605000" />
+      <workItem from="1646822430952" duration="5002000" />
     </task>
     <servers />
   </component>

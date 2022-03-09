@@ -6,7 +6,7 @@ import {API_URL} from "../App";
 
 const useProvideAuth = () => {
     const [user, setUser] = useState<User | null>(null);
-    const [_, setToken] = useToken(false);
+    const [token, setToken] = useToken(false);
 
     const signIn = (email: string, password: string, cb: (user: User | null) => void) => {
 
@@ -43,11 +43,24 @@ const useProvideAuth = () => {
         cb()
     };
 
+    const fetchUser = (cb?: (user: User) => void) => {
+        axios.get<User>(`${API_URL}/@me`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(r => {
+            if (r.data.email) {
+                setUser(r.data)
+            }
+        })
+    }
+
     return {
         user,
         setUser,
         signIn,
-        signOut
+        signOut,
+        fetchUser
     };
 }
 

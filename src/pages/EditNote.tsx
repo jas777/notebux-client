@@ -14,28 +14,30 @@ import useToken from "../hooks/useToken";
 import '../assets/scss/markdown.scss';
 import '../assets/scss/highlight.scss';
 import useAuthProtection from "../hooks/useAuthProtection";
+import ToggleSwitch from "../components/forms/ToggleSwitch";
+import {useAuth} from "../providers/auth";
 
-const NewNote = () => {
-
-    useAuthProtection()
+const EditNote = () => {
 
     const [errorModalShown, setErrorModalShown] = useState(false);
-    const [_, setData] = useState<Note>()
+    const [data, setData] = useState<Note>()
 
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
 
     if (!searchParams.get('id')) navigate("/")
 
-    const [token] = useToken();
+    const [token] = useToken(false);
 
     const formik = useFormik({
         initialValues: {
             title: '',
             content: '',
-            shareTo: ''
+            shareTo: '',
+            sharedGlobally: false
         },
         onSubmit: async (values) => {
+            console.log(values)
             axios.put<Note>(`${API_URL}/notes/edit/${searchParams.get('id')}`, JSON.stringify({
                 ...values,
                 shareTo: values.shareTo.split(' ')
@@ -66,9 +68,10 @@ const NewNote = () => {
                 formik.setFieldValue("title", r.data.title)
                 formik.setFieldValue("content", r.data.content, false)
                 formik.setFieldValue("shareTo", r.data.shareTo.join(' '))
+                formik.setFieldValue("sharedGlobally", r.data.sharedGlobally)
             } else navigate("/")
         })
-    }, [navigate, searchParams, token])
+    }, [])
 
     const customStyles = {
         content: {
@@ -118,6 +121,14 @@ const NewNote = () => {
                                        error={formik.errors.shareTo}
                                        placeholder="dupa@example.com supermail@zse.com"
                             />
+                            <div className="mb-8">
+                                <ToggleSwitch name="sharedGlobally" label="Share globally"/>
+                                {formik.values.sharedGlobally && (
+                                    <div className="mt-4">
+                                        <TextInput name="share-link" label="Share link" disabled value={`${API_URL.replace("api.", "")}/note?id=${data?.id}&feature=notes/shared`}/>
+                                    </div>
+                                )}
+                            </div>
                             <div className="flex flex-row">
                                 <div className="mr-4">
                                     <DashboardButton primary label="Submit" type="submit"/>
@@ -132,4 +143,4 @@ const NewNote = () => {
     )
 }
 
-export default NewNote;
+export default EditNote;

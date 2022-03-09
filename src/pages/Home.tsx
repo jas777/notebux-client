@@ -5,11 +5,8 @@ import {API_URL} from "../App";
 import Note from "../types/Note";
 import NoteList from "../components/NoteList";
 import NoteTemplateList from "../components/NoteTemplateList";
-import useAuthProtection from "../hooks/useAuthProtection";
 
 const Home = () => {
-
-    useAuthProtection()
 
     const [notes, setNotes] = useState<Note[]>([])
 
@@ -24,7 +21,7 @@ const Home = () => {
         }).then(r => {
             setNotes(r.data)
         })
-    }, [token])
+    }, [])
 
     return (
         <div className="w-full flex items-center flex-col w-3/4 self-center">

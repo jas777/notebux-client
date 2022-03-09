@@ -32,3 +32,7 @@ pre {
 body {
     overflow-x: hidden;
 }
+
+.pretty.p-switch .state:before {
+    height: calc(1em + 4px) !important;
+}

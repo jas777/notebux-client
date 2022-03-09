@@ -1,4 +1,4 @@
-import {Field, FieldProps, FormikProps} from 'formik';
+import {FastField, Field, FieldProps, FormikProps} from 'formik';
 import React, {ChangeEvent, ChangeEventHandler} from 'react';
 
 interface TextInputProps {
@@ -50,7 +50,7 @@ const TextInput = ({
                 autoComplete={rest.autoComplete}
                 {...rest}
             />}
-            {multiline && <Field
+            {multiline && <FastField
                 className={`${
                     !hideErrorPlaceholder && error ? 'border-error' : ''
                 } overflow-hidden bg-field-background transition-colors duration-150 appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline focus:border-primary`}

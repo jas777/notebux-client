@@ -1,6 +1,10 @@
 @use 'light';
 @use 'dark';
 
+body, html, div {
+  @apply transition-colors duration-75;
+}
+
 .theme {
   &-light {
     @include light.light;

@@ -8,6 +8,7 @@ export default interface Note {
     shareTo: string[];
     createdAt: string;
     lastEdited: string;
+    sharedGlobally: boolean;
 }
 
 export const noteValidationSchema = yup.object({
@@ -21,4 +22,5 @@ export const noteValidationSchema = yup.object({
             return originalValue ? originalValue.split(' ') : [];
         })
         .of(yup.string().email(({value}) => `${value} is not a valid email`)),
+    sharedGlobally: yup.boolean()
 })
